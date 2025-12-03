@@ -4,7 +4,7 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDsaOeTDCVTnPD2ed2OLEChghZM_jfuHF4",
+  apiKey: "",
   authDomain: "seika-ba8ac.firebaseapp.com",
   projectId: "seika-ba8ac",
   storageBucket: "seika-ba8ac.firebasestorage.app",
