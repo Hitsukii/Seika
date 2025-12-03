@@ -1,5 +1,59 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Reset</title></head>
-<body><h1>Reset</h1><input id='resetEmail'><button id='resetBtn'>Enviar</button>
-<script type='module'>import{resetPassword}from'./auth.js';
-resetBtn.onclick=async()=>{try{await resetPassword(resetEmail.value);alert('Enviado')}catch(e){alert(e)}};</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restablecer contraseña</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+
+    <div class="card shadow p-4" style="width: 350px;">
+
+        <h3 class="text-center mb-3">Restablecer contraseña</h3>
+
+        <p class="text-muted small text-center">
+            Ingresa tu correo y te enviaremos un enlace para cambiar tu contraseña.
+        </p>
+
+        <div class="mb-3">
+            <label class="form-label">Correo</label>
+            <input id="resetEmail" type="email" class="form-control" placeholder="usuario@mail.com" required>
+        </div>
+
+        <button id="resetBtn" class="btn btn-primary w-100 mb-3">Enviar enlace</button>
+
+        <a href="login.html" class="small text-center w-100 d-block">Volver al login</a>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module">
+        import { resetPassword } from './auth.js';
+
+        document.getElementById('resetBtn').onclick = async () => {
+            const email = document.getElementById('resetEmail').value.trim();
+
+            if (!email) {
+                alert("Ingresa un correo válido");
+                return;
+            }
+
+            try {
+                await resetPassword(email);
+                alert("Correo enviado. Revisa tu bandeja de entrada.");
+            } catch (e) {
+                alert("Error: " + e.message);
+            }
+        };
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
