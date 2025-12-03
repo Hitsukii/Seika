@@ -1,39 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Iniciar Sesión</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .login-card {
+            width: 360px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .login-card h3 {
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #111;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        #loginBtn {
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 
-<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+<body>
 
-    <div class="card shadow p-4" style="width: 350px;">
-
-        <h3 class="text-center mb-3">Iniciar Sesión</h3>
+    <div class="login-card">
+        <h3>Bienvenido</h3>
 
         <div class="mb-3">
             <label class="form-label">Correo</label>
-            <input id="email" type="email" class="form-control" placeholder="usuario@mail.com" required>
+            <input id="email" type="email" class="form-control" placeholder="usuario@mail.com">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Contraseña</label>
-            <input id="password" type="password" class="form-control" placeholder="••••••••" required>
+            <input id="password" type="password" class="form-control" placeholder="••••••••">
         </div>
 
-        <button id="loginBtn" class="btn btn-primary w-100 mb-3">Entrar</button>
+        <button id="loginBtn" class="btn btn-primary w-100 mt-2">Entrar</button>
 
-        <div class="d-flex justify-content-between">
-            <a href="register.html" class="small">Registrar</a>
-            <a href="reset.html" class="small">Olvidé mi clave</a>
+        <div class="text-center mt-3 links">
+            <a href="register.html" class="d-block small">Crear cuenta</a>
+            <a href="reset.html" class="d-block small">¿Olvidaste tu contraseña?</a>
         </div>
     </div>
 
-    <!-- JS -->
     <script type="module">
         import { login } from './auth.js';
 
@@ -41,10 +91,7 @@
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
 
-            if (!email || !password) {
-                alert("Ingresa correo y contraseña");
-                return;
-            }
+            if (!email || !password) return alert("Ingresa correo y contraseña");
 
             try {
                 await login(email, password);
@@ -55,8 +102,6 @@
         };
     </script>
 
-    <!-- Bootstrap bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
+
 </html>
