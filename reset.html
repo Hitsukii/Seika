@@ -1,0 +1,5 @@
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Reset</title></head>
+<body><h1>Reset</h1><input id='resetEmail'><button id='resetBtn'>Enviar</button>
+<script type='module'>import{resetPassword}from'./auth.js';
+resetBtn.onclick=async()=>{try{await resetPassword(resetEmail.value);alert('Enviado')}catch(e){alert(e)}};</script>
+</body></html>

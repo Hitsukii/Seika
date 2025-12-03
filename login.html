@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Login</title></head>
+<body><h1>Login</h1><input id='email'><input id='password' type='password'>
+<button id='loginBtn'>Entrar</button><a href='register.html'>Registrar</a><a href='reset.html'>Reset</a>
+<script type='module'>import {login} from './auth.js';
+loginBtn.onclick=async()=>{try{await login(email.value,password.value);location='index.html'}catch(e){alert(e)}};</script>
+</body></html>

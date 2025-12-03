@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Registro</title></head>
+<body><h1>Registro</h1><input id='email'><input id='password' type='password'>
+<button id='regBtn'>Registrar</button>
+<script type='module'>import{register}from'./auth.js';
+regBtn.onclick=async()=>{try{await register(email.value,password.value);location='index.html'}catch(e){alert(e)}};</script>
+</body></html>
